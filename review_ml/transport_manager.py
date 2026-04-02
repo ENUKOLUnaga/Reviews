@@ -100,3 +100,16 @@ y_pred=pipeline.predict(x_test)
 print("Accuracy:",accuracy_score(y_test,y_pred))
 print(classification_report(y_test,y_pred))
 
+new_data = pd.DataFrame({
+    'inventory_id' : ['INV-2065'],
+    'warehouse' :['WH-B'],
+    'product' :['Laptop'],
+    'supplier' : ['Supplier-Z'],
+    'stock_level' : [200],
+    'reorder_level' : [150],
+    'last_updated' : ['3/23/2026 9:22:56 PM']
+})
+
+#predicting random data
+stock_risk = pipeline.predict(new_data)
+print("Risk of shortage :", stock_risk[0])
